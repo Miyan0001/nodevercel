@@ -1,3 +1,9 @@
+import express from 'express';
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+
 const headers = new Headers();
 headers.append('User-Agent', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36');
 headers.append('Content-Type', 'application/json');
@@ -43,5 +49,13 @@ async function runLoop() {
   }
 }
 
-// Start the loop
-runLoop();
+
+app.get('/', (req, res) => {
+  setTimeout(runLoop(),1000)
+  res.send('Hello, Vercel with TypeScript!');
+});
+
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
