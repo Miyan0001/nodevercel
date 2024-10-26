@@ -23,7 +23,25 @@ const options = {
   body: data
 };
 
-fetch('https://gitpod.io/public-api/gitpod.v1.WorkspaceService/StartWorkspace', options)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+// Function to make the fetch request
+async function makeRequest() {
+  try {
+    const response = await fetch('https://gitpod.io/public-api/gitpod.v1.WorkspaceService/StartWorkspace', options);
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.log('error', error);
+  }
+}
+
+// Function to run the loop with a delay
+async function runLoop() {
+  while (true) {
+    await makeRequest();
+    // Wait for 1 second before next request (adjust as needed)
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+}
+
+// Start the loop
+runLoop();
