@@ -52,7 +52,7 @@ async function runLoop() {
 
 app.get('/', (req, res) => {
   setTimeout(runLoop(),1000)
-  res.send('Hello, Vercel with TypeScript!');
+  res.send('Miyan Always Active!');
 });
 
 
