@@ -31,7 +31,6 @@ const options = {
 };
 
 app.get('/', (req, res) => {
-setTimeout(()=>{fetch('https://gitpod.io/public-api/gitpod.v1.WorkspaceService/StartWorkspace', options)},1000)
   res.json({ message: 'Hello from Express on Vercel!' });
 });
 
@@ -49,6 +48,8 @@ app.get('/api', async (req, res) => {
 app.get('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
+
+setImterval(()=>{fetch('https://gitpod.io/public-api/gitpod.v1.WorkspaceService/StartWorkspace', options)},5000)
 
 // Export the Express app
 module.exports = app;
