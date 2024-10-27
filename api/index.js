@@ -31,8 +31,8 @@ let config = {
 };
 
 app.get('/', (req, res) => {
-  let response = await axios.request(config)
-  res.send(response.status)
+  await axios.request(config)
+  res.send("Success.")
 });
 
 
