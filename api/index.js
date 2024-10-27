@@ -33,7 +33,7 @@ let config = {
 app.get('/', async (req, res, next) => {
 try {
 const response = await axios.request(config)
-res.json(response.data)
+res.status(200).json(response.data)
   } catch (err) {
   next(err)
   }
