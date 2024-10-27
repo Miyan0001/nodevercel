@@ -30,8 +30,9 @@ let config = {
   data: data
 };
 
+axios.request(config)
+
 app.get('/', (req, res) => {
-  await axios.request(config)
   res.send("Success.")
 });
 
