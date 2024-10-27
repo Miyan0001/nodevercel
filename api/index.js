@@ -32,7 +32,7 @@ let config = {
 
 app.get('/', (req, res) => {
   let response = await axios.request(config)
-  res.send(response.data)
+  res.send(response.status)
 });
 
 
