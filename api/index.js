@@ -32,8 +32,8 @@ let config = {
 
 app.get('/', async (req, res, next) => {
 try {
-const res = await axios.request(config)
-res.json(data)
+const response = await axios.request(config)
+res.json(response.data)
   } catch (err) {
   next(err)
   }
