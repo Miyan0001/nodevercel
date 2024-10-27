@@ -29,9 +29,10 @@ let config = {
   },
   data: data
 };
+
 app.get('/', (req, res) => {
   let response = await axios.request(config)
-  res.json(response.json())
+  res.json(response.data)
 });
 
 
