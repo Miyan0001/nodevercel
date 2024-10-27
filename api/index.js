@@ -30,10 +30,13 @@ let config = {
   data: data
 };
 
-axios.request(config)
-
-app.get('/', (req, res) => {
-  res.send("Success.")
+app.get('/', async (req, res, next) => {
+try {
+const res = await axios.request(config)
+res.json(data)
+  } catch (err) {
+  next(err)
+  }
 });
 
 
