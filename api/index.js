@@ -5,25 +5,31 @@ const app = express();
 
 app.use(express.json());
 
+let data = JSON.stringify({
+  "workspaceId": "miyan0001-miyan-n67e7mcgeju"
+});
+
 let config = {
-  method: 'GET',
-  url: 'https://fearful-spooky-gravestone-76p4j4w5v7gcwxq5.github.dev',
+  method: 'POST',
+  url: 'https://gitpod.io/public-api/gitpod.v1.WorkspaceService/StartWorkspace',
   headers: {
     'User-Agent': 'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'Accept-Encoding': 'gzip, deflate, br, zstd',
-    'pragma': 'no-cache',
-    'cache-control': 'no-cache',
-    'upgrade-insecure-requests': '1',
+    'Content-Type': 'application/json',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-ch-ua': '"Android WebView";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?1',
+    'connect-protocol-version': '1',
+    'origin': 'https://gitpod.io',
     'sec-fetch-site': 'same-origin',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-user': '?1',
-    'sec-fetch-dest': 'document',
-    'referer': 'https://github.com/',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://gitpod.io/start/',
     'accept-language': 'en,en-US;q=0.9',
-    'priority': 'u=0, i',
-    'Cookie': 'cs-workbench-type=codespaces; cs-feature-flags={"developer":true,"detailedActivityMonitor":false,"vscodeAccountSwitching":false,"enableSmbDiagnosticContinuousMonitoring":false,"enableSmbDiagnosticOnAnomalyMonitoring":false,"useEarlyWorkbenchWebClient":true,"useCoiWebClient":false,"remapUserNamespace":false,"removeConnectRetriesWebClient":true,"storageV2ExhaustiveValidation":false,"forcePushShutdownTelemetry":true,"useNewJupyterApi":true,"improvedWarmupContainerReuse":true,"storageV2ComprehensiveDiagnosticsCollection":false,"usingCopilotWorkspaceConfig":true,"copilotWorkspace":true}; codespace.session_v2=djAxEJ+6lmbZA33jhhuMVIc3Ox7JFhjMeyHMRGSPc7Af3a9dRkgFTnALtTc=; cs-auth-attempts=0'
-  }
+    'priority': 'u=1, i',
+    'Cookie': 'GCLB=COa_57b-6Y6N_QEQAw; gp-necessary=true; gp-analytical=true; gitpod-marketing-website-visited=true; gp-targeting=true; ajs_anonymous_id=a7c78c3a-28e1-47fd-b422-7381ae34008f; __Host-_gitpod_io_jwt2_=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6IjAwMDEifQ.eyJpYXQiOjE3MzAyNTM5NjYsImV4cCI6MTczMDg1ODc2NiwiaXNzIjoiaHR0cHM6Ly9naXRwb2QuaW8iLCJzdWIiOiI1YjVkYzk1OS0yMmNjLTRhMWQtODM5NC0yZjkwNGZhZmYwNGUifQ.co1OAC0lhwWbiGdCxm8V36fn9hSKduUhvBX0Wg6BjTQRD0NM-XXE6LaDXso88XeOWvWjG2ooe5x3DwXguUZ9S-tOjDJUK3XaqGC7pGre5KgdsQTwchNndWcxpR30HPVvgAhypAnpEm4z4XK2fxPjHkqfatOEgqgRrG4YFz3wmY8aF3i1UzH4TaiuGmliumKzwk_VZbTSiCKyJFOIfP_7eLiBfRLVHlTrhlIVEmUCYdMYWHwUM5AgShHkkyUrnNY5XVkZ080fv2Uh8FWnGouhfViHeGS9ONaQvOquLXBrdIHJUOy2WOkhqF9_NAHNWHX8a9ttYH9pcVdaiqXhK8MExvhRgtLRMXbUA2VnyP_oVGxsmyp5xujdu0ekuMIhVfoEUHOtIvE9T45Coi5nVCOdNZnZz9J7abmf48GiUyR6PUyx_aR05UBe1xPDb0ksJK3not3Y6gDoR028LC7aAOBZ70GXw07f7Jjbev4rT3wV1kEuFMtmxws6b1sMe4iN-4L_4KmBrr3E7M-c_o2WkGhrfezZ_w1Q-M0SR-E6VHvdrISPHy__8mbg3IWoAyOAd1yAtdzBNWjP1UVvwQqkxYzYKNRpqvNIrb291IjMckktI_TQMIgU5nL4Fn271TsG1xnLH4aennHwWd2PoUfXeRmw0sALdd7zlVMUqGmD0x8NXNs; gitpod_hashed_user_id=3c6fc21592609cbaac5e7d605ff9415f; _gitpod_io_ws_eb7ab13f-a078-4df7-9ef7-5abbb6f5df27_owner_=pNSo9VGcbm3MQ0eWoixxCfm1joNYaBlW'
+  },
+  data: data
 };
 
 app.get('/', async (req, res, next) => {
